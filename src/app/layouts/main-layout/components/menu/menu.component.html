@@ -1,9 +1,9 @@
 <ul nz-menu nzTheme="dark" nzMode="inline" class="main-menu">
-  <li nz-menu-item [routerLink]="['/']" routerLinkActive="router-link-active">
+  <li nz-menu-item [routerLink]="['/']" routerLinkActive="router-link-active" [nzSelected]="isActiveRoute('/', true)">
     <span nz-icon nzType="pie-chart"></span>
     <span>Dashboard</span>
   </li>
-  <li nz-menu-item [routerLink]="['/tasks']" routerLinkActive="router-link-active" >
+  <li nz-menu-item [routerLink]="['/tasks']" routerLinkActive="router-link-active" [nzSelected]="isActiveRoute('/tasks')">
     <span nz-icon nzType="desktop"></span>
     <span>Task</span>
   </li>

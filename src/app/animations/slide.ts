@@ -77,7 +77,7 @@ export const slideInAnimation =
         query(':enter', [
           animate('300ms ease-out', style({ left: '0%' }))
         ]),
-        query('@*', animateChild())
+        query('@*', animateChild(), { optional: true })
       ]),
     ])
   ]);

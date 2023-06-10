@@ -61,12 +61,15 @@ export const layoutAnimations = trigger('routeAnimations', [
           animate('300ms ease-out', style({ transform: 'translateX(0)' }))
         ]),
         query('.main-header', [
-          animate('300ms ease-out', style({  transform: 'translateY(0)' }))
+          animate('300ms ease-out', style({ transform: 'translateY(0)' }))
         ]),
         query('.main-footer', [
-          animate('300ms ease-out', style({  transform: 'translateY(0)' }))
+          animate('300ms ease-out', style({ transform: 'translateY(0)' }))
         ])
       ])
     ])
+  ]),
+  transition("* <=> *", [
+    query("@*", animateChild(), { optional: true })
   ])
 ]);
