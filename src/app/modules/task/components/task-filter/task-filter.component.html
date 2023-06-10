@@ -1,0 +1,38 @@
+<form nz-form class="task-form" [formGroup]="formGroup" (ngSubmit)="submitFilter()">
+  <nz-row [nzGutter]="16" [nzAlign]="'bottom'">
+    <nz-col [nzSpan]="6">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24" nzForm="filterName">Name</nz-form-label>
+        <nz-form-control [nzSpan]="24">
+          <input nz-input type="text" id="filterName" name="name" formControlName="name" placeholder="Input text to search..."nzAllowClear />
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+    <nz-col [nzSpan]="6">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24" nzForm="filterAssignee">Assignee</nz-form-label>
+        <nz-form-control [nzSpan]="24">
+          <nz-select formControlName="assignee" id="filterAssignee" [nzLoading]="!users" nzAllowClear>
+            <nz-option *ngFor="let user of users" [nzValue]="user.id" [nzLabel]="user.name"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+    <nz-col [nzSpan]="6">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="24" nzForm="filterStatus">Status</nz-form-label>
+        <nz-form-control [nzSpan]="24">
+          <nz-select formControlName="status" id="filterStatus" [nzLoading]="!statuses" nzAllowClear>
+            <nz-option *ngFor="let status of statuses" [nzValue]="status.id" [nzLabel]="status.name"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-col>
+    <nz-col [nzSpan]="6">
+      <nz-form-item>
+        <button nz-button nzType="primary" type="submit">Submit</button>
+        <button nz-button type="button" style="margin-left: 16px;">Reset</button>
+      </nz-form-item>
+    </nz-col>
+  </nz-row>
+</form>

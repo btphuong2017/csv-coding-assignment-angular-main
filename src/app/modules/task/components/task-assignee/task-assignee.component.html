@@ -1,0 +1,17 @@
+<ng-container *ngIf="task.assignee">
+  <div class="task-assignee" nz-dropdown nzTrigger="click" [nzDropdownMenu]="assigneeDropdown">
+    <img [src]="task.assignee.avatar" alt="{{ task.assignee.name }}" />
+  </div>
+</ng-container>
+<ng-container *ngIf="!task.assignee">
+  <div class="task-assignee unset" nz-dropdown nzTrigger="click" [nzDropdownMenu]="assigneeDropdown">
+    <span nz-icon nzType="plus" nzTheme="outline"></span>
+  </div>
+</ng-container>
+<nz-dropdown-menu class="task-assignee-dropdown" #assigneeDropdown="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li *ngFor="let user of users" nz-menu-item [nzSelected]="task.assignee?.id === user.id" [nzDisabled]="task.assignee?.id === user.id" (click)="onAssign(user.id)">
+      {{ user.name }}
+    </li>
+  </ul>
+</nz-dropdown-menu>

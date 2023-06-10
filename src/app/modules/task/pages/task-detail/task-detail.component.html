@@ -1,0 +1,38 @@
+<nz-spin nzTip="Loading..." [nzSpinning]="loading" style="min-height: 200px">
+  <ng-container *ngIf="task">
+    <nz-card [nzTitle]="taskTitle" [nzExtra]="taskDetailAction">
+      <div class="task-detail">
+        <nz-table nzTemplateMode class="task-detail-table">
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>{{ task.id }}</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>{{ task.name }}</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td>{{ task.description }}</td>
+            </tr>
+            <tr>
+              <td>Assignee</td>
+              <td><app-task-assignee [task]="task" [users]="users" (onChanged)="getTask()"></app-task-assignee></td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td><app-task-status [task]="task" (onChanged)="getTask()"></app-task-status></td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </nz-card>
+  </ng-container>
+</nz-spin>
+<ng-template #taskDetailAction>
+  <button type="button" nz-button (click)="onBack()">Back To List</button>
+</ng-template>
+<ng-template #taskTitle>
+  <b>Task: <i>{{ task.name }}</i></b>
+</ng-template>

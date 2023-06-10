@@ -1,0 +1,22 @@
+<button
+  class="task-status"
+  nz-dropdown
+  [nzDropdownMenu]="taskStatuses"
+  nzTrigger="click"
+  [ngClass]="{
+    'task-status--new': task.status === 1,
+    'task-status--in-progress': task.status === 2,
+    'task-status--done': task.status === 3
+  }"
+>
+  <ng-container *ngIf="task.status === 1">NEW</ng-container>
+  <ng-container *ngIf="task.status === 2">IN PROGRESS</ng-container>
+  <ng-container *ngIf="task.status === 3">DONE</ng-container>
+</button>
+<nz-dropdown-menu class="task-status-dropdown" #taskStatuses="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item (click)="onSelectStatus(1)">NEW</li>
+    <li nz-menu-item (click)="onSelectStatus(2)">IN PROGRESS</li>
+    <li nz-menu-item (click)="onSelectStatus(3)">DONE</li>
+  </ul>
+</nz-dropdown-menu>

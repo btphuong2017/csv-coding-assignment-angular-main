@@ -1,0 +1,26 @@
+.main {
+  &-layout {
+    min-height: 100%;
+  }
+  &-logo {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &-footer {
+    padding: 13px 50px;
+    p {
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+
+  &-content {
+    padding: 8px;
+  }
+
+  &-sider {
+    z-index: 999;
+  }
+}

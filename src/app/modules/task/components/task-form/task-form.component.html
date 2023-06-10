@@ -1,0 +1,14 @@
+<form nz-form class="task-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="24" nzForm="name">Name</nz-form-label>
+    <nz-form-control [nzSpan]="24">
+      <input nz-input type="text" id="name" name="name" formControlName="name" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="24" nzForm="description">Description</nz-form-label>
+    <nz-form-control [nzSpan]="24">
+      <textarea nz-input type="text" id="description" name="description" formControlName="description" [nzAutosize]="{ minRows: 3, maxRows: 5 }"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+</form>

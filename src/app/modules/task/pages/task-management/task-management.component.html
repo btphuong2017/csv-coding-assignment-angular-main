@@ -1,0 +1,14 @@
+<nz-card [nzTitle]="taskManagementTitle" [nzExtra]="taskManagementAction">
+  <div class="task-filter-container">
+    <app-task-filter #taskFilter (onSubmit)="taskList.getTasks($event)"></app-task-filter>
+  </div>
+  <div class="task-list-container">
+    <app-task-list #taskList></app-task-list>
+  </div>
+</nz-card>
+<ng-template #taskManagementAction>
+  <button type="button" nz-button nzType="primary" (click)="onCreate()">Create New Task</button>
+</ng-template>
+<ng-template #taskManagementTitle>
+  <b>Task Management</b>
+</ng-template>

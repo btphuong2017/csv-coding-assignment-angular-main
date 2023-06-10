@@ -1,0 +1,39 @@
+<nz-spin nzTip="Loading..." [nzSpinning]="loading" style="min-height: 150px;">
+  <nz-table #basicTable [nzData]="tasks" [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th class="text-center">Assignee</th>
+        <th class="text-center">Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of basicTable.data; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ task.name }}</td>
+        <td>{{ task.description }}</td>
+        <td class="text-center">
+          <app-task-assignee [users]="users" [task]="task" (onChanged)="getTasks()"></app-task-assignee>
+        </td>
+        <td class="text-center">
+          <app-task-status [task]="task" (onChanged)="getTasks()"></app-task-status>
+        </td>
+        <td class="text-right">
+          <button nz-button nz-dropdown nzTrigger="click" [nzDropdownMenu]="taskActions" type="button" nzSize="small" class="task-action-toggle">
+            <span nz-icon nzType="ellipsis" nzTheme="outline"></span>
+          </button>
+          <nz-dropdown-menu class="task-action-dropdown" #taskActions="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item (click)="onDetail(task)">Detail</li>
+              <li nz-menu-item (click)="onEdit(task)">Edit</li>
+              <li nz-menu-item (click)="onDelete(ta)">Delete</li>
+            </ul>
+          </nz-dropdown-menu>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</nz-spin>

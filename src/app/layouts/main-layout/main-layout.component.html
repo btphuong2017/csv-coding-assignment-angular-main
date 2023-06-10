@@ -1,0 +1,20 @@
+<nz-layout class="main-layout">
+  <nz-sider nzCollapsible nzWidth="200px" class="main-sider">
+    <div class="main-logo">
+      <img src="https://placehold.co/160x40?text=LOGO" alt="LOGO" />
+    </div>
+    <app-menu></app-menu>
+  </nz-sider>
+  <nz-layout>
+    <nz-header class="main-header"></nz-header>
+    <nz-content class="main-content">
+      <!-- <app-breadcrumb></app-breadcrumb> -->
+      <div class="main-content-inner">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer class="main-footer">
+      <p>Task Management Application ©2023 Implement By Angular</p>
+    </nz-footer>
+  </nz-layout>
+</nz-layout>

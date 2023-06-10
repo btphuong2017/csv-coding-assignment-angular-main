@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.task {
+  &-status {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    padding: 2px 4px;
+
+    min-width: 80px;
+
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+
+    &--new {
+      color: #fff;
+      background-color: #17a2b8;
+    }
+
+    &--in-progress {
+      color: #fff;
+      background-color: #28a745;
+    }
+
+    &--done {
+      color: #fff;
+      background-color: #ffc107;
+    }
+
+  }
+
+  &-status-dropdown {
+    font-size: 12px;
+  }
+
+  &-assignee {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    
+    overflow: hidden;
+    
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    &.unset {
+      background-color: #f0f0f0;
+      border: 1px dashed #ccc;
+    }
+  }
+
+  &-detail-table {
+    tr td:first-child {
+      font-weight: bold;
+    }
+  }
+}
+
+.ant-dropdown-menu-item {
+  min-width: 120px !important;
+}
+
+.ant-table tfoot>tr>td, .ant-table tfoot>tr>th, .ant-table-tbody>tr>td, .ant-table-thead>tr>th {
+  padding: 8px 16px;
+}
+
+.page-wrapper {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ant-card-body {
+  padding-top: 8px; 
+  padding-bottom: 8px;
+}
